@@ -204,7 +204,7 @@ Public Class Cpu
         Next
     End Sub
     Public Function GetInstruction(x As Byte, y As Byte) As Instruction
-        Dim value As Integer = Integer.Parse(Me.ByteToHexadecimal(x, y), NumberStyles.HexNumber)
+        Dim value As Integer = BitConverter.ToInt32(New Byte() {y, x, 0, 0}, 0)
         Select Case value And &HF000
             Case &H0 : Return New Instruction() With {.Opcode = CUShort(value And &HFF), .NN = 0, .NNN = 0, .N = 0, .X = 0, .Y = 0}
             Case &H8000 : Return New Instruction() With {.Opcode = value And &HF00F, .NN = 0, .NNN = 0, .N = 0, .X = (value And &HF00) >> 8, .Y = (value And &HF0) >> 4}
@@ -212,8 +212,5 @@ Public Class Cpu
             Case &HF000 : Return New Instruction() With {.Opcode = value And &HF0FF, .NN = 0, .NNN = 0, .N = 0, .X = (value And &HF00) >> 8, .Y = 0}
             Case Else : Return New Instruction() With {.Opcode = value And &HF000, .NN = value And &HFF, .NNN = value And &HFFF, .N = value And &HF, .X = (value And &HF00) >> 8, .Y = (value And &HF0) >> 4}
         End Select
-    End Function
-    Public Function ByteToHexadecimal(x As Byte, y As Byte) As String
-        Return String.Format("{0}{1}", x.ToString("X"), y.ToString("X").PadLeft(2, "0"c))
     End Function
 End Class
