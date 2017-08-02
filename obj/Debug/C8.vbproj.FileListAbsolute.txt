@@ -1,0 +1,9 @@
+C:\Users\Barret\AppData\Local\Temporary Projects\C8\bin\Debug\C8.exe.config
+c:\Users\Barret\Documents\GitHub\C8\bin\Debug\C8.exe.config
+c:\Users\Barret\Documents\GitHub\C8\bin\Debug\C8.exe
+c:\Users\Barret\Documents\GitHub\C8\bin\Debug\C8.pdb
+c:\Users\Barret\Documents\GitHub\C8\obj\Debug\C8.frmMain.resources
+c:\Users\Barret\Documents\GitHub\C8\obj\Debug\C8.Resources.resources
+c:\Users\Barret\Documents\GitHub\C8\obj\Debug\C8.vbproj.GenerateResource.Cache
+c:\Users\Barret\Documents\GitHub\C8\obj\Debug\C8.exe
+c:\Users\Barret\Documents\GitHub\C8\obj\Debug\C8.pdb
