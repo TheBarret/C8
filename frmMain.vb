@@ -13,6 +13,7 @@ Public Class frmMain
     End Sub
     Private Sub frmMain_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If (Me.Machine IsNot Nothing AndAlso Me.Machine.Running) Then
+            Me.txtDebug.Focus()
             Me.Machine.GetDevice(Of Keyboard)().KeyPressed(Keyboard.ToChar(e.KeyData))
         End If
     End Sub
