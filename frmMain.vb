@@ -32,12 +32,17 @@ Public Class frmMain
             For Each fn As String In Directory.GetFiles(".\Roms\", "*.bin")
                 Me.lbFiles.Items.Add(Path.GetFileName(fn))
             Next
-            If (Autoload AndAlso Me.lbFiles.Items.Count > 0) Then
-                Me.lbFiles.SelectedIndex = 0
-                Dim fn As String = String.Format(".\roms\{0}", Me.lbFiles.SelectedItem.ToString)
-                Me.Start(fn)
-            End If
+            Me.Start()
         End If
+    End Sub
+    Private Sub Start()
+        If (Me.Machine IsNot Nothing AndAlso Me.Machine.Running) Then
+            Me.Machine.Abort()
+            Me.Machine.Exit.WaitOne()
+        End If
+        Me.Machine = New Machine
+        Me.Machine.Load(My.Resources.Copyright, Me.Viewport)
+        Me.Machine.Run()
     End Sub
     Private Sub Start(Filename As String)
         If (File.Exists(Filename)) Then

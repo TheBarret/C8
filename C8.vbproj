@@ -135,6 +135,7 @@
     </None>
     <None Include="App.config" />
     <EmbeddedResource Include="Resource\Sprites.bin" />
+    <EmbeddedResource Include="Resource\Copyright.bin" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Chip.ico" />
