@@ -2,7 +2,7 @@
 Public Class frmMain
     Private Machine As Machine
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.PopulateRomFiles()
+        Me.Initialize(True)
     End Sub
     Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If (Me.Machine IsNot Nothing AndAlso Me.Machine.Running) Then
@@ -26,15 +26,17 @@ Public Class frmMain
             Me.Start(String.Format(".\roms\{0}", Me.lbFiles.SelectedItem.ToString))
         End If
     End Sub
-    Private Sub PopulateRomFiles()
+    Private Sub Initialize(Autoload As Boolean)
         Me.lbFiles.Items.Clear()
-        For Each fn As String In Directory.GetFiles(".\Roms\", "*.bin")
-            Me.lbFiles.Items.Add(Path.GetFileName(fn))
-        Next
-        If (Me.lbFiles.Items.Count > 0) Then
-            Me.lbFiles.SelectedIndex = 0
-            Dim fn As String = String.Format(".\roms\{0}", Me.lbFiles.SelectedItem.ToString)
-            Me.Start(fn)
+        If (Directory.Exists(".\roms\")) Then
+            For Each fn As String In Directory.GetFiles(".\Roms\", "*.bin")
+                Me.lbFiles.Items.Add(Path.GetFileName(fn))
+            Next
+            If (Autoload AndAlso Me.lbFiles.Items.Count > 0) Then
+                Me.lbFiles.SelectedIndex = 0
+                Dim fn As String = String.Format(".\roms\{0}", Me.lbFiles.SelectedItem.ToString)
+                Me.Start(fn)
+            End If
         End If
     End Sub
     Private Sub Start(Filename As String)

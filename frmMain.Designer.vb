@@ -35,7 +35,7 @@ Partial Class frmMain
         Me.lbFiles.FormattingEnabled = True
         Me.lbFiles.Location = New System.Drawing.Point(4, 203)
         Me.lbFiles.Name = "lbFiles"
-        Me.lbFiles.Size = New System.Drawing.Size(384, 108)
+        Me.lbFiles.Size = New System.Drawing.Size(388, 108)
         Me.lbFiles.TabIndex = 4
         '
         'Clock
@@ -45,10 +45,10 @@ Partial Class frmMain
         'Viewport
         '
         Me.Viewport.BackColor = System.Drawing.Color.White
-        Me.Viewport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Viewport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Viewport.Location = New System.Drawing.Point(4, 2)
         Me.Viewport.Name = "Viewport"
-        Me.Viewport.Size = New System.Drawing.Size(384, 195)
+        Me.Viewport.Size = New System.Drawing.Size(388, 195)
         Me.Viewport.TabIndex = 5
         Me.Viewport.TabStop = False
         '
@@ -56,7 +56,7 @@ Partial Class frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(396, 322)
+        Me.ClientSize = New System.Drawing.Size(397, 314)
         Me.Controls.Add(Me.Viewport)
         Me.Controls.Add(Me.lbFiles)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
