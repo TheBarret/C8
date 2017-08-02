@@ -5,7 +5,6 @@
     Public Property X As Int32
     Public Property Y As Int32
     Public Property Opcode As Int32
-    Public Property Name As String
     Public Overrides Function ToString() As String
         Return String.Format("0x{0} N{1} NN{2} NNN{3} X:{4} Y:{5}", Me.Opcode.ToString, Me.N.ToString, Me.NN.ToString, Me.NNN.ToString, Me.X.ToString, Me.Y.ToString)
     End Function
